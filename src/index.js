@@ -69,7 +69,7 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  return `${hours}:${minutes}`;
 }
 
 
@@ -81,12 +81,11 @@ function displayForecast(response) {
     if (index < 5) {
       let forecastDate = new Date(forecastDay.time * 1000);
       let day = formatDay(forecastDate);
-      let time = formatHours(forecastDay.time);
 
       forecastHTML +=
         `<div class="weather-forecast-item">
           <div class="weather-forecast-dates">${day}</div>
-          <div class="weather-forecast-time">${time}</div>
+         
           <div class="weather-forecast-icon">
             <img src="${getWeatherIconByDescription(forecastDay.condition.description)}" alt=""/>
           </div>

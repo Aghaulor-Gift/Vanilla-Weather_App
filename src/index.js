@@ -69,8 +69,9 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${hours}:${minutes}`;
+  return date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
 }
+
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#daily-forecast");
